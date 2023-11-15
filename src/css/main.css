@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+body {
+	font-family: 'Inter', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+
+}
+
+/* switcher */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 46px;
+	height: 20px;
+}
+
+.switch input {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #CECDCD;
+	-webkit-transition: .4s;
+	transition: .4s;
+	box-shadow: 7px 5px 15px 0px #A09EA099;
+	;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 18px;
+	width: 18px;
+	left: 1px;
+	bottom: 1px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked+.slider {
+	background-color: #9BB537;
+}
+
+input:focus+.slider {
+	box-shadow: 0 0 1px #9BB537;
+}
+
+input:checked+.slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+/* switcher */
+
+.main-header {
+	padding: 0 100px;
+	margin-top: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.main-logo img {
+	width: 93px;
+}
+
+.main-nav a {
+	font-size: 12px;
+	text-decoration: none;
+	color: black;
+}
+
+.main-nav a:first-child {
+	margin-right: 0px;
+}
