@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 11</title>
-  </head>
-  <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button type="submit">Search</button>
-    </form>
 
-    <script src="index.js" type="module"></script>
-  </body>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./css/main.css">
+	<title>tasty treats</title>
+</head>
+
+<body>
+	<div class="container">
+		<header class="main-header">
+			<nav class="main-nav">
+				<a href="">Home</a>
+				<a href="">Favorites</a>
+			</nav>
+
+			<div class="main-logo">
+				<img src="./img/logo.png" alt="">
+			</div>
+
+			<div class="main-switcher-themes">
+				<label class="switch">
+					<input type="checkbox">
+					<span class="slider round"></span>
+				</label>
+			</div>
+		</header>
+	</div>
+
+	<script src="index.js" type="module"></script>
+</body>
+
 </html>
