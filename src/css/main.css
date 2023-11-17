@@ -6,10 +6,17 @@ body {
 	font-weight: 400;
 }
 
+
+
+.swiper-pagination-bullets {
+	margin-top: 50px;
+}
+
+
 .container {
 	max-width: 1280px;
 	margin: 0 auto;
-
+	overflow: hidden;
 }
 
 /* switcher */
@@ -81,6 +88,7 @@ input:checked+.slider:before {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin-bottom: 100px;
 }
 
 .main-logo img {
@@ -95,4 +103,120 @@ input:checked+.slider:before {
 
 .main-nav a:first-child {
 	margin-right: 0px;
+}
+
+.first-screen__left-column {
+	flex: 1 0 40%;
+}
+
+.first-screen__left-column p {
+	max-width: 408px;
+	line-height: 24px;
+	font-weight: 400;
+}
+
+.first-screen__btn {
+	font-size: 14px;
+	font-weight: 500;
+	padding: 14px 28px;
+	border-radius: 15px;
+	border: 1px solid #9BB537;
+	background-color: #fff;
+	margin-top: 10px;
+}
+
+.first-screen {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 100px;
+}
+
+.first-screen h1 {
+	font-size: 36px;
+	line-height: 43px;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+.first-screen span {
+	font-weight: 400;
+	color: #9BB537;
+	font-style: italic;
+}
+
+.first-screen__right-column {
+	position: relative;
+}
+
+.slide-img {
+	position: relative;
+}
+
+
+.slide-img img {
+	width: 100%;
+}
+
+.slide__img-wrar {
+	display: flex;
+}
+
+.swiper {
+	width: 870;
+	height: 470px;
+}
+
+.first {
+	width: 137px;
+	height: 442px;
+	border-radius: 15px;
+	margin-right: 15px;
+	background-position: center center;
+	background-size: cover;
+	flex: 1 0 auto;
+}
+
+.second {
+	width: 350px;
+	height: 442px;
+	border-radius: 15px;
+	margin-right: 15px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: #1e220d;
+	flex: 1 0 auto;
+}
+
+.third {
+	width: 350px;
+	height: 442px;
+	border-radius: 15px;
+	background-position: center center;
+	background-size: calc(150%);
+	flex: 1 0 auto;
+	background-color: #1e220d;
+}
+
+.slide-text {
+	position: relative;
+	bottom: 60px;
+	text-align: center;
+	left: -12%;
+}
+
+.slide-text h2 {
+	color: #F8F8F899;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 0;
+}
+
+.slide-text p {
+	color: #F8F8F833;
+	font-size: 12px;
+	line-height: 25px;
 }
