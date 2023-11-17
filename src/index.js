@@ -19,11 +19,13 @@ api.getIvents()
 		swiperWrapper.insertAdjacentHTML('beforeend', slider);
 	})
 
+
 const swiper = new Swiper('.swiper', {
 	// Optional parameters
 	//effect: "fade",
 	direction: 'horizontal',
-	// If we need pagination
+	observer: true,
+	observerParents: true,
 	pagination: {
 		el: '.swiper-pagination',
 		type: 'bullets',
@@ -34,3 +36,4 @@ const swiper = new Swiper('.swiper', {
 		disableOnInteraction: false,
 	},
 });
+

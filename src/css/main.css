@@ -168,6 +168,23 @@ input:checked+.slider:before {
 	height: 470px;
 }
 
+.swiper .swiper-pagination {
+	bottom: 0 !important;
+	width: initial !important;
+	left: 36% !important;
+}
+
+.swiper .swiper-pagination-bullet {
+	width: 5px;
+	height: 5px;
+	opacity: 0.8;
+	margin: 0 2px !important;
+}
+
+.swiper .swiper-pagination-bullet-active {
+	background-color: #9BB537;
+}
+
 .first {
 	width: 137px;
 	height: 442px;
