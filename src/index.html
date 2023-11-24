@@ -4,15 +4,20 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="./css/main.css">
+	<link rel="icon" href="./img/pizza.ico">
 	<title>tasty treats</title>
 </head>
 
 <body>
+
 	<div class="container">
 		<header class="main-header">
 			<nav class="main-nav">
-				<a href="">Home</a>
+				<a href="" class="active">Home</a>
 				<a href="">Favorites</a>
 			</nav>
 
@@ -28,7 +33,7 @@
 			</div>
 		</header>
 
-		<div class="first-screen">
+		<section class="first-screen">
 			<div class="first-screen__left-column">
 				<h1>Learn to Cook <span>Tasty Treats'</span> Customizable Masterclass</h1>
 				<p>TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step Video Guides.</p>
@@ -47,7 +52,51 @@
 				</div>
 
 			</div>
-		</div>
+		</section>
+
+		<section class="second-screen">
+			<div class="second-screen__left-column">
+				<div class="left-column__top">
+					<button class="left-colum__all-categories-btn">All categories</button>
+					<ul class="left-column__categories-list"></ul>
+				</div>
+				<div class="left-column__bottom">
+					<h2>popular recipes</h2>
+					<div class="left-column__popular-recipes">
+
+					</div>
+				</div>
+			</div>
+			<div class="second-screen__right-column">
+				<div class="right-column__top">
+					<form class="wrap-inputs filter-form">
+						<div class="wrap-input">
+							<label for="">Search</label>
+							<input class="search" type="search" placeholder="Enter Text">
+						</div>
+						<div class="wrap-input">
+							<label for="">Time</label>
+							<select name="time" id="" class="time"></select>
+						</div>
+						<div class="wrap-input">
+							<label for="">Area</label>
+							<select name="area" id="" class="area"></select>
+						</div>
+						<div class="wrap-input">
+							<label for="">Ingredients</label>
+							<select name="ingredients" id="" class="ingredients"></select>
+						</div>
+					</form>
+					<button class="reset-filter"><span>x</span> Reset the filter</button>
+				</div>
+				<div class="right-column__recepies-cards">
+
+				</div>
+			</div>
+			<div class="pagination">
+
+			</div>
+		</section>
 	</div>
 	<script src="index.js" type="module"></script>
 </body>
