@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +14,7 @@
 </head>
 
 <body>
-
+	<div class="popup-wrap"></div>
 	<div class="container">
 		<header class="main-header">
 			<nav class="main-nav">
@@ -69,7 +70,7 @@
 			</div>
 			<div class="second-screen__right-column">
 				<div class="right-column__top">
-					<form class="wrap-inputs filter-form">
+					<div class="wrap-inputs filters-container">
 						<div class="wrap-input">
 							<label for="">Search</label>
 							<input class="search" type="search" placeholder="Enter Text">
@@ -86,16 +87,13 @@
 							<label for="">Ingredients</label>
 							<select name="ingredients" id="" class="ingredients"></select>
 						</div>
-					</form>
+					</div>
 					<button class="reset-filter"><span>x</span> Reset the filter</button>
 				</div>
-				<div class="right-column__recepies-cards">
-
-				</div>
+				<div class="right-column__recepies-cards"></div>
+				<div class="pagination" id="pagination"></div>
 			</div>
-			<div class="pagination">
 
-			</div>
 		</section>
 	</div>
 	<script src="index.js" type="module"></script>
