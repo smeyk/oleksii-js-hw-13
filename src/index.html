@@ -77,15 +77,21 @@
 						</div>
 						<div class="wrap-input">
 							<label for="">Time</label>
-							<select name="time" id="" class="time"></select>
+							<select name="time" id="" class="time">
+								<option disabled selected hidden>0 min</option>
+							</select>
 						</div>
 						<div class="wrap-input">
 							<label for="">Area</label>
-							<select name="area" id="" class="area"></select>
+							<select name="area" id="" class="area">
+								<option disabled selected hidden>Region</option>
+							</select>
 						</div>
 						<div class="wrap-input">
 							<label for="">Ingredients</label>
-							<select name="ingredients" id="" class="ingredients"></select>
+							<select name="ingredients" id="" class="ingredients">
+								<option disabled selected hidden>Product</option>
+							</select>
 						</div>
 					</div>
 					<button class="reset-filter"><span>x</span> Reset the filter</button>
@@ -96,6 +102,9 @@
 
 		</section>
 	</div>
+	<script async src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+		integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="index.js" type="module"></script>
 </body>
 

@@ -5,7 +5,7 @@ import { createRecipeCard } from "./functions"
 const timeSelector = document.querySelector(".time");
 const areaSelector = document.querySelector(".area");
 const ingredientsSelector = document.querySelector(".ingredients");
-
+const searchInput = document.querySelector(".search")
 
 
 for (let i = 5; i <= 120; i += 5) {
@@ -21,7 +21,6 @@ api.getListOfAreas()
 	.then(data => {
 		let area = data.reduce((markup, area) => markup + createOption(area.name, area._id), "");
 		areaSelector.insertAdjacentHTML('beforeend', area);
-		//document.getElementById('6462a6f04c3d0ddd28897f9c').setAttribute('selected', 'selected');
 	})
 	.catch(() => {
 		Notify.failure("❌ We're sorry, but something went wrong...");
@@ -38,7 +37,34 @@ api.getListOfIngredients()
 	})
 
 
+const onSearchRecipe = (event) => {
+	event.preventDefault();
+	let request = searchInput.value.trim();
+	if (request === "") {
+		return Notify.failure("❌ Sorry, but you entered nothig. Please try again.");
+	}
 
+	api.getRecipesByTitle(request)
+		.then(data => {
+
+			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
+			recepiesCards.innerHTML = recipeCard;
+
+			const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
+			const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
+
+
+			allFavoriteHearts.forEach(heart => {
+				heart.addEventListener('click', onClickFavoriteHeart);
+			})
+
+			allSeeRecipeBtns.forEach(button => {
+				button.addEventListener('click', onClickSeeRecipeBtn);
+			})
+
+		})
+}
+searchInput.addEventListener('input', _.debounce(onSearchRecipe, 500));
 
 
 ingredientsSelector.addEventListener('change', () => {

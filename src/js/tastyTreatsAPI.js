@@ -9,7 +9,6 @@ export default class TastyTreatsAPI {
 		this.category = "";
 		this.popular = "";
 		this.page = 1;
-		this.perPage = 6;
 		this.limit = 9;
 		this.time = "";
 		this.area = "";
@@ -113,6 +112,18 @@ export default class TastyTreatsAPI {
 	}
 	getListOfIngredients() {
 		const url = `${this.baseURL}/ingredients`;
+
+		return axios.get(url)
+			.then(response => {
+				if (response.status !== 200 || response.data.length === 0) {
+					throw new Error(response.data.error);
+				}
+				return response.data;
+			})
+	}
+	getRecipesByTitle(request) {
+		this.title = request;
+		const url = `${this.recipes}?title=${this.title}&page=${this.page}&limit=${this.limit}`;
 
 		return axios.get(url)
 			.then(response => {

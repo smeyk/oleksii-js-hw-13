@@ -198,6 +198,18 @@ const pushAllcategoriesBtn = (event) => {
 		.then(data => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
+
+			const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
+			const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
+
+
+			allFavoriteHearts.forEach(heart => {
+				heart.addEventListener('click', onClickFavoriteHeart);
+			})
+
+			allSeeRecipeBtns.forEach(button => {
+				button.addEventListener('click', onClickSeeRecipeBtn);
+			})
 		})
 		.catch(() => {
 			Notify.failure("❌ We're sorry, but something went wrong...");
