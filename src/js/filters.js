@@ -1,4 +1,4 @@
-import { api, recepiesCards, onClickFavoriteHeart, onClickSeeRecipeBtn } from "./methods";
+import { api, recepiesCards, heartAndSeeBtns } from "./methods";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createRecipeCard } from "./functions"
 
@@ -40,9 +40,6 @@ api.getListOfIngredients()
 const onSearchRecipe = (event) => {
 	event.preventDefault();
 	let request = searchInput.value.trim();
-	if (request === "") {
-		return Notify.failure("❌ Sorry, but you entered nothig. Please try again.");
-	}
 
 	api.getRecipesByTitle(request)
 		.then(data => {
@@ -50,17 +47,7 @@ const onSearchRecipe = (event) => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
 
-			const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
-			const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
-
-
-			allFavoriteHearts.forEach(heart => {
-				heart.addEventListener('click', onClickFavoriteHeart);
-			})
-
-			allSeeRecipeBtns.forEach(button => {
-				button.addEventListener('click', onClickSeeRecipeBtn);
-			})
+			heartAndSeeBtns();
 
 		})
 }
@@ -78,17 +65,7 @@ ingredientsSelector.addEventListener('change', () => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
 
-			const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
-			const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
-
-
-			allFavoriteHearts.forEach(heart => {
-				heart.addEventListener('click', onClickFavoriteHeart);
-			})
-
-			allSeeRecipeBtns.forEach(button => {
-				button.addEventListener('click', onClickSeeRecipeBtn);
-			})
+			heartAndSeeBtns();
 
 		})
 
@@ -106,17 +83,7 @@ areaSelector.addEventListener('change', () => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
 
-			const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
-			const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
-
-
-			allFavoriteHearts.forEach(heart => {
-				heart.addEventListener('click', onClickFavoriteHeart);
-			})
-
-			allSeeRecipeBtns.forEach(button => {
-				button.addEventListener('click', onClickSeeRecipeBtn);
-			})
+			heartAndSeeBtns();
 
 		})
 
@@ -133,17 +100,7 @@ timeSelector.addEventListener('change', () => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
 
-			const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
-			const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
-
-
-			allFavoriteHearts.forEach(heart => {
-				heart.addEventListener('click', onClickFavoriteHeart);
-			})
-
-			allSeeRecipeBtns.forEach(button => {
-				button.addEventListener('click', onClickSeeRecipeBtn);
-			})
+			heartAndSeeBtns();
 		})
 
 })

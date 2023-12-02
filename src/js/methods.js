@@ -40,6 +40,20 @@ api.getAllCategories()
 		Notify.failure("❌ We're sorry, but something went wrong...");
 	})
 
+export const heartAndSeeBtns = () => {
+	const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
+	const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
+
+
+	allFavoriteHearts.forEach(heart => {
+		heart.addEventListener('click', onClickFavoriteHeart);
+	})
+
+	allSeeRecipeBtns.forEach(button => {
+		button.addEventListener('click', onClickSeeRecipeBtn);
+	})
+}
+
 
 const onPopularRecipeClick = (event) => {
 	event.preventDefault();
@@ -86,7 +100,7 @@ api.getPopularRecipes()
 	})
 
 
-export const onClickFavoriteHeart = (event) => {
+const onClickFavoriteHeart = (event) => {
 	event.preventDefault();
 	console.log(event.currentTarget.dataset.id)
 	api.getRecipeById(event.currentTarget.dataset.id)
@@ -94,7 +108,7 @@ export const onClickFavoriteHeart = (event) => {
 			console.log(data);
 		})
 }
-export const onClickSeeRecipeBtn = (event) => {
+const onClickSeeRecipeBtn = (event) => {
 	event.preventDefault();
 	api.getRecipeById(event.target.dataset.id)
 		.then(data => {
@@ -130,17 +144,7 @@ api.getAllRecepies()
 		recepiesCards.insertAdjacentHTML('beforeend', recipeCard);
 
 
-		const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
-		const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
-
-
-		allFavoriteHearts.forEach(heart => {
-			heart.addEventListener('click', onClickFavoriteHeart);
-		})
-
-		allSeeRecipeBtns.forEach(button => {
-			button.addEventListener('click', onClickSeeRecipeBtn);
-		})
+		heartAndSeeBtns();
 
 	})
 	.catch(() => {
@@ -165,23 +169,14 @@ const checkCategory = (event) => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
 
-			const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
-			const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
-
-
-			allFavoriteHearts.forEach(heart => {
-				heart.addEventListener('click', onClickFavoriteHeart);
-			})
-
-			allSeeRecipeBtns.forEach(button => {
-				button.addEventListener('click', onClickSeeRecipeBtn);
-			})
+			heartAndSeeBtns();
 		})
 		.catch(() => {
 			Notify.failure("❌ We're sorry, but something went wrong...");
 		})
 
 }
+
 //Function runs when you push all categories button and show recepi from all categories
 const pushAllcategoriesBtn = (event) => {
 	event.preventDefault();
@@ -199,17 +194,7 @@ const pushAllcategoriesBtn = (event) => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
 
-			const allFavoriteHearts = document.querySelectorAll('.favorite-heart');
-			const allSeeRecipeBtns = document.querySelectorAll('.see-recipe');
-
-
-			allFavoriteHearts.forEach(heart => {
-				heart.addEventListener('click', onClickFavoriteHeart);
-			})
-
-			allSeeRecipeBtns.forEach(button => {
-				button.addEventListener('click', onClickSeeRecipeBtn);
-			})
+			heartAndSeeBtns();
 		})
 		.catch(() => {
 			Notify.failure("❌ We're sorry, but something went wrong...");
