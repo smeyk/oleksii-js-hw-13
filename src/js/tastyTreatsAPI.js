@@ -63,7 +63,7 @@ export default class TastyTreatsAPI {
 			})
 	}
 	getAllRecepies() {
-		const url = `${this.recipes}?limit=${this.limit}`;
+		const url = `${this.recipes}?limit=${this.limit}&page=${this.page}`;
 
 		return axios.get(url)
 			.then(response => {
@@ -124,6 +124,18 @@ export default class TastyTreatsAPI {
 	getRecipesByTitle(request) {
 		this.title = request;
 		const url = `${this.recipes}?title=${this.title}&page=${this.page}&limit=${this.limit}`;
+
+		return axios.get(url)
+			.then(response => {
+				if (response.status !== 200 || response.data.length === 0) {
+					throw new Error(response.data.error);
+				}
+				return response.data;
+			})
+	}
+	getChosePage(chosenPage) {
+		this.page = chosenPage;
+		const url = `${this.recipes}?limit=${this.limit}&page=${this.page}`;
 
 		return axios.get(url)
 			.then(response => {

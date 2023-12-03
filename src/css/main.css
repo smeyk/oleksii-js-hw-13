@@ -797,3 +797,83 @@ input:focus {
 	color: #9BB537;
 	font-size: 14px;
 }
+
+.pagination-buttons-list {
+	display: flex;
+	justify-content: center;
+	margin-top: 60px;
+	margin-bottom: 100px;
+}
+
+/*  styles for navigatio buttons     */
+.page-btn {
+	border: 1px solid rgba(5, 5, 5, 0.3);
+	color: #2c303a;
+	height: 44px;
+	width: 44px;
+	padding: 0 10px;
+	letter-spacing: 0.1em;
+	transition: background 0.3s ease;
+	margin: 0 2px;
+	border-radius: 50%;
+}
+
+.pagination-buttons i {
+	font-size: 18px;
+}
+
+.page-btn:first-of-type {
+	margin-left: 0;
+}
+
+.page-btn:last-of-type {
+	margin-right: 0;
+}
+
+.page-btn:not([class$="-page"]) {
+	width: 44px;
+}
+
+.pagination-buttons {
+	display: flex;
+	align-items: center;
+}
+
+.page-btn[class*="-page"] {
+	background: rgba(155, 181, 55, 1);
+	color: rgba(5, 5, 5, 1);
+	font-size: 0.6em;
+	font-weight: 700;
+	border: none;
+}
+
+.page-btn.active {
+	background: rgba(155, 181, 55, 1);
+	color: rgba(5, 5, 5, 1) !important;
+	border: none !important;
+}
+
+.page-btn.next-page {
+	margin-left: 20px;
+}
+
+.page-btn.prev-page {
+	margin-right: 20px;
+}
+
+.page-btn[disabled] {
+	background-color: rgba(5, 5, 5, 1);
+	color: rgba(248, 248, 248, 0.5);
+}
+
+button {
+	background: none;
+	appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	border: none;
+	cursor: pointer;
+}
+
+/*  styles for navigatio buttons     */

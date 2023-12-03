@@ -1,5 +1,6 @@
 import TastyTreatsAPI from './tastyTreatsAPI';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import PaginationButton from './pagination';
 import {
 	createCouruselSlide,
 	createRecipeCategoriesBtn,
@@ -16,6 +17,7 @@ export const recepiesCards = document.querySelector(".right-column__recepies-car
 const allCategoriesBtn = document.querySelector(".left-colum__all-categories-btn");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 const popupWrap = document.querySelector('.popup-wrap');
+
 
 
 export const api = new TastyTreatsAPI();
@@ -137,14 +139,35 @@ const onClickSeeRecipeBtn = (event) => {
 		})
 }
 
+
+
+
 //Get all recipe with all categories	
 api.getAllRecepies()
 	.then(data => {
+
 		let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 		recepiesCards.insertAdjacentHTML('beforeend', recipeCard);
 
-
 		heartAndSeeBtns();
+
+		const paginationButtons = new PaginationButton(data.totalPages, 3, Number(data.page));
+		paginationButtons.render();
+
+
+		document.querySelector(".pagination-buttons").addEventListener("click", (event) => {
+
+			api.getChosePage(event.target.textContent)
+				.then(data => {
+					let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
+					recepiesCards.innerHTML = recipeCard;
+					paginationButtons.update(Number(data.page));
+					heartAndSeeBtns();
+				})
+
+		})
+
+
 
 	})
 	.catch(() => {
@@ -168,8 +191,8 @@ const checkCategory = (event) => {
 		.then(data => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
-
 			heartAndSeeBtns();
+
 		})
 		.catch(() => {
 			Notify.failure("❌ We're sorry, but something went wrong...");
@@ -193,7 +216,6 @@ const pushAllcategoriesBtn = (event) => {
 		.then(data => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
-
 			heartAndSeeBtns();
 		})
 		.catch(() => {
@@ -201,7 +223,6 @@ const pushAllcategoriesBtn = (event) => {
 		})
 
 }
-
 
 
 
