@@ -139,7 +139,19 @@ const onClickSeeRecipeBtn = (event) => {
 		})
 }
 
+const paginationButtons = new PaginationButton(32, 3, 1);
+paginationButtons.render();
 
+paginationButtons.onChange((event) => {
+	api.getChosePage(event.target.value)
+		.then(data => {
+			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
+			recepiesCards.innerHTML = recipeCard;
+			//paginationButtons.update(data.page);
+			heartAndSeeBtns();
+		})
+
+})
 
 
 //Get all recipe with all categories	
@@ -151,27 +163,10 @@ api.getAllRecepies()
 
 		heartAndSeeBtns();
 
-		const paginationButtons = new PaginationButton(data.totalPages, 3, Number(data.page));
-		paginationButtons.render();
-
-
-		document.querySelector(".pagination-buttons").addEventListener("click", (event) => {
-
-			api.getChosePage(event.target.textContent)
-				.then(data => {
-					let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
-					recepiesCards.innerHTML = recipeCard;
-					paginationButtons.update(Number(data.page));
-					heartAndSeeBtns();
-				})
-
-		})
-
-
 
 	})
 	.catch(() => {
-		Notify.failure("❌ We're sorry, but something went wrong...");
+		Notify.failure("❌ all recepies issue");
 	})
 
 
@@ -192,10 +187,9 @@ const checkCategory = (event) => {
 			let recipeCard = data.results.reduce((markup, card) => markup + createRecipeCard(card.preview, card.title, card.description, card.rating, card._id), "");
 			recepiesCards.innerHTML = recipeCard;
 			heartAndSeeBtns();
-
 		})
 		.catch(() => {
-			Notify.failure("❌ We're sorry, but something went wrong...");
+			Notify.failure("❌ check category issue");
 		})
 
 }

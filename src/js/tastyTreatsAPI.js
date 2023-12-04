@@ -14,6 +14,12 @@ export default class TastyTreatsAPI {
 		this.area = "";
 		this.ingredient = "";
 		this.id = "";
+		if (document.documentElement.clientWidth < 768) {
+			this.limit = 8;
+		}
+		if (document.documentElement.clientWidth < 480) {
+			this.limit = 5;
+		}
 	}
 	getIvents() {
 		const url = `${this.baseURL}/${this.events}`;
