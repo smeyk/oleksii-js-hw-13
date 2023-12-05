@@ -1119,7 +1119,7 @@ button {
 	}
 
 	.opened-recipe-card {
-		width: 300px;
+		width: 320px;
 		display: flex;
 		padding: 10px;
 		flex-direction: column;
@@ -1135,7 +1135,7 @@ button {
 	}
 
 	.open-rcipe-card__video iframe {
-		width: 280px;
+		width: 300px;
 		height: 200px;
 	}
 
@@ -1147,15 +1147,18 @@ button {
 
 	.open-rcipe-card__ingridients {
 		order: 4;
+		padding: 0 10px;
 	}
 
 	.open-rcipe-card__description {
 		order: 5;
+		padding: 0 10px;
 	}
 
 	.open-rcipe-card__buttons {
 		order: 6;
 		margin-bottom: 10px;
+		text-align: center;
 	}
 
 	.add-to-favorite {
